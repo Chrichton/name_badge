@@ -4,9 +4,8 @@ defmodule NameBadge.Screen.TopLevel do
   require Logger
 
   @screens [
+    {"Test-Screen", NameBadge.Screen.TestScreen},
     {"Name Badge", NameBadge.Screen.NameBadge},
-    {"Gallery", NameBadge.Screen.Gallery},
-    {"Schedule", NameBadge.Screen.Schedule},
     {"Settings", NameBadge.Screen.Settings}
   ]
 
@@ -43,6 +42,8 @@ defmodule NameBadge.Screen.TopLevel do
 
   def handle_button("BTN_2", 0, screen) do
     {_name, module} = Enum.at(@screens, screen.assigns.screen_index)
+
+    Logger.info("BTN_2 module: #{module}")
 
     {:render, navigate(screen, module)}
   end

@@ -66,3 +66,64 @@ You need a rust toolchain installed. Plus the following architecture:
 Afterwards, firmware can be uploaded over ssh via `mix upload`.
 
 More docs coming soon. Thanks for joining Goatmire 2025!
+
+---
+
+From Heiko:
+
+# Exports
+
+export MIX_TARGET=trellis
+export BASE_URL=goatmire.fly.dev
+export NERVES_WIFI_SSID="nervesconf"
+export NERVES_WIFI_PASSPHRASE="nervesconf"
+
+# get dependencies
+
+mix deps.get
+
+# Create Firmware
+
+mix firmware
+
+# Troubleshooting
+
+Sometimes 'mix firmware' fails
+
+- remove the \_build folder
+- remove the deps
+- mix deps.get
+- mix firmware
+
+# Prepare burning the firmware
+
+./release/launch.sh trellis
+
+# set board to FEL mode
+
+- switch off the board
+- open the board
+- press the FEL button on the board
+- switch on the board
+- release the FEL button
+
+The board should show as a USB-Stick on your computer and erase the eMMC
+
+# burn the firmware
+
+- mix burn
+
+# ssh into board
+
+ssh wisteria.local
+
+# Troubleshooting
+
+when you get:
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+
+- sudo nano ~/.ssh/known_hosts
+- remove entry: wisteria.local ssh-e....
