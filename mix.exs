@@ -62,7 +62,7 @@ defmodule NameBadge.MixProject do
        github: "protolux-electronics/nerves_system_trellis", runtime: false, targets: :trellis}
     ] ++
       if nerves_hub_configured?(),
-        do: [{:nerves_hub_link, "~> 2.8", targets: @all_targets}],
+        do: [{:nerves_hub_link, "~> 2.8", targets: @all_targets, runtime: false}],
         else: []
   end
 

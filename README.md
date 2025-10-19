@@ -70,6 +70,9 @@ More docs coming soon. Thanks for joining Goatmire 2025!
 ---
 
 From Heiko:
+[original repo](https://github.com/protolux-electronics/name_badge)
+
+[my forked repo](https://github.com/Chrichton/name_badge)
 
 # Exports
 
@@ -127,3 +130,7 @@ IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
 
 - sudo nano ~/.ssh/known_hosts
 - remove entry: wisteria.local ssh-e....
+
+[Typst documentation](https://typst.app/docs/reference/text/text/)
+
+[Typst Web app](https://typst.app/play/)
